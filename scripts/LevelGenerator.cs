@@ -2,6 +2,7 @@
 using System.Collections;
 using SimpleJSON;
 using System.IO;
+using System.Collections.Generic;
 
 public class LevelGenerator : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class LevelGenerator : MonoBehaviour {
 	public string fileName;
 
 	private string levelConfig;
+	public GameObject obstacle;
+	public GameObject coin;
 
 	void Awake() {
 		if (instance == null) {
@@ -42,6 +45,29 @@ public class LevelGenerator : MonoBehaviour {
 	{
 		JSONNode json = JSON.Parse (levelConfig);
 
-		print (json ["test"].Value);
+		string tile = json ["tiles"][0]["tile"].Value;
+		string[] tileSplit = tile.Split (' ');
+		ArrayList lines = new ArrayList();
+
+		for (int i = 0; i < tileSplit.Length; i++) {
+			string line = tileSplit [i];
+			if (line != "")
+				lines.Add(line);
+		}
+
+		for (int i = 1; i <= lines.Count; i++) {
+			string line = lines [lines.Count - i] as string;
+			for (int j = 0; j < line.Length; j++) {
+				GameObject newObject = null;
+				if (line [j] == 'O') {
+					newObject = Instantiate (obstacle);
+				}
+				if (line [j] == 'C') {
+					newObject = Instantiate (coin);
+				}
+				if(newObject != null)
+					newObject.transform.position = new Vector3 (j, i, 0);
+			}
+		}
 	}
 }

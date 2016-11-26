@@ -1,14 +1,18 @@
 {
-	"test":"success",
-	"other test": "42.0",
-	"data": [
+	"tiles": [
 		{
-			"id": 1,
-			"name": "first"
-		},
-		{
-			"id": 2,
-			"name": "second"
+			"tile": "NNNNNNNNNNN
+					 NNCNNNNNNNN
+					 NOOONNNNNNO
+					 NNCNNNNNNNN
+					 NNNNNNNNONN
+			         NNOOONNOCNN
+			         NNNNCNNONNN
+				 	 NNNNNNNNNNN
+					 NNNOONONNNN
+					 NNNNNNCNNNN
+					 NNNNNNNNNNN",
+			"name": "obstacle"
 		}
 	]
 }
