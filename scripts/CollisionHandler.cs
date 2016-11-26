@@ -3,11 +3,10 @@ using System.Collections;
 
 public class CollisionHandler : MonoBehaviour 
 {
-
 	// Use this for initialization
 	void Start () 
 	{
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -18,7 +17,6 @@ public class CollisionHandler : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Obstacle")
-			print ("hit");
+		SendMessage ("OnCollision", other.tag);
 	}
 }
