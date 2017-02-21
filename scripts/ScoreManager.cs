@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class ScoreManager : MonoBehaviour {
-
+public class ScoreManager : MonoBehaviour 
+{
 	private int score;
+	public Text text;
 
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		score = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 	
 	}
 
@@ -22,6 +26,6 @@ public class ScoreManager : MonoBehaviour {
 		if (tag == "Coin")
 			score += 200;
 
-		print (score);
+		text.text = score.ToString();
 	}
 }

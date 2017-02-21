@@ -18,5 +18,7 @@ public class CollisionHandler : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		SendMessage ("OnCollision", other.tag);
+		if (other.tag == "Coin")
+			other.gameObject.SetActive(false);
 	}
 }

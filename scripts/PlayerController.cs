@@ -35,19 +35,25 @@ public class PlayerController : MonoBehaviour
 		bool rightPlayerL = Input.GetButtonDown (  "D"  ) && movePoints.y > 0 && linePlayerR < numberOfLine ;
 		bool leftPlayerL  = Input.GetButtonDown (  "Q"  ) && movePoints.y > 0 && linePlayerL > -numberOfLine;
 
-		if (rightPlayerR || leftPlayerR) {
+		if (rightPlayerR || leftPlayerR) 
+		{
 			movePoints.x = Mathf.Clamp (movePoints.x - 1, 0, movePointsMaxR);
 			movePoints.y = Mathf.Clamp (movePoints.y + 1, 0, movePointsMaxL);
-		} else if (rightPlayerL || leftPlayerL) {
+		} 
+		else if (rightPlayerL || leftPlayerL) 
+		{
 			movePoints.y = Mathf.Clamp (movePoints.y - 1, 0, movePointsMaxL);
 			movePoints.x = Mathf.Clamp (movePoints.x + 1, 0, movePointsMaxR);
 		}
 			
-		if (rightPlayerR || rightPlayerL) {
+		if (rightPlayerR || rightPlayerL) 
+		{
 			linePlayerL += 1;
 			linePlayerR += 1;
 			transform.position = new Vector3 (transform.position.x + 1.0f, transform.position.y, transform.position.z);
-		} else if (leftPlayerR || leftPlayerL) {
+		}
+		else if (leftPlayerR || leftPlayerL) 
+		{
 			linePlayerL -= 1;
 			linePlayerR -= 1;
 			transform.position = new Vector3 (transform.position.x - 1.0f, transform.position.y, transform.position.z);
